@@ -1,0 +1,13 @@
+--تعريف متغير ياخذ تاريخ اليوم
+declare  @Sdate  Datetime
+--تستطيع تبديل المتغير الى اسم عمود من نوع تاريخ
+set @Sdate = getdate()
+
+select  
+   @Sdate
+  ,DATENAME(weekday, @Sdate) as "اسم اليوم" 
+ ,DATENAME(MONTH, @Sdate) as "اسم الشهر" 
+  ,DATENAME(WEEK, @Sdate) as "رقم الاسبوع بالسنة" 
+  ,FORMAT(@Sdate, 'dddd', 'ar-IQ') as "اسم اليوم بالعربي" 
+  ,FORMAT(@Sdate, 'MMMM', 'ar-IQ') as "اسم الشهر بالعربي " 
+  ,DATEDIFF(DAY,'2019-01-01',@Sdate) as "الفرق بالايام من بداية السنة" 
